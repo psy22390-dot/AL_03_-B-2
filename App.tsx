@@ -24,7 +24,8 @@ import {
   ArrowRight,
   Car,
   Train,
-  Navigation
+  Navigation,
+  UserPlus
 } from 'lucide-react';
 
 // --- Types ---
@@ -237,6 +238,22 @@ const ReservationModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ 
                     <option value="16:00">04:00 PM</option>
                     <option value="18:00">06:00 PM</option>
                   </select>
+                </div>
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-gray-600 flex items-center gap-2 px-1">예약 인원</label>
+                <div className="relative">
+                  <input 
+                    required 
+                    type="number" 
+                    min="1" 
+                    max="20" 
+                    placeholder="2"
+                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:border-[#D95D22] outline-none text-sm transition-all pr-12" 
+                    value={formData.guests} 
+                    onChange={e => setFormData({...formData, guests: e.target.value})} 
+                  />
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold text-gray-400">명</span>
                 </div>
               </div>
               <div className="pt-4 flex gap-3">
